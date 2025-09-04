@@ -1,0 +1,206 @@
+:root {
+  --card: rgba(20, 20, 22, .72);
+  --edge: rgba(255, 255, 255, .14);
+  --text: #e8e8e8;
+  --muted: #a0a4ab;
+  --ok: #22c55e;
+  --bad: #ef4444;
+}
+
+/* --- page base --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  color: var(--text);
+  font: 14px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  overflow: auto;
+  overscroll-behavior: none;
+
+  /* hide scrollbars cross-browser */
+  -ms-overflow-style: none;      /* IE/old Edge */
+  scrollbar-width: none;         /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {        /* Chrome/Safari/Edge */
+  width: 0; height: 0;
+}
+
+/* --- layout wrappers --- */
+.wrap { padding: 12px; }
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  padding: 12px;
+  backdrop-filter: blur(6px);
+}
+
+h3 { margin: 0 0 8px 0; }
+
+/* --- generic buttons --- */
+.btn {
+  appearance: none;
+  border: 1px solid var(--edge);
+  background: rgba(255, 255, 255, .06);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .06s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+  user-select: none;
+}
+.btn:hover {
+  background: rgba(78, 78, 78, .12);
+  border-color: rgba(78, 78, 78, .22);
+}
+.btn:active { transform: translateY(1px); }
+.btn[disabled],
+.btn.busy {
+  opacity: .65;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* --- messages --- */
+.error {
+  background: rgba(239, 68, 68, .12);
+  border: 1px solid rgba(239, 68, 68, .35);
+  color: #fecaca;
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 10px 2px 0;
+}
+
+/* =========================
+   Shortcuts editor ONLY
+   ========================= */
+
+details.shortcuts {
+  margin-top: 12px;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: var(--card);
+  backdrop-filter: blur(6px);
+}
+
+/* nice summary caret + hit area */
+details.shortcuts > summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+details.shortcuts > summary::-webkit-details-marker { display: none; }
+details.shortcuts > summary::before {
+  content: '';
+  width: 9px; height: 9px;
+  border-right: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
+  transform: rotate(-45deg);
+  transition: transform .2s ease;
+  opacity: .9;
+}
+details.shortcuts[open] > summary::before {
+  transform: rotate(45deg);
+}
+
+.sc-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* each row card */
+.sc-item {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, .1);
+  backdrop-filter: blur(10px);
+}
+
+/* inputs */
+.sc-item input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, .1);
+  color: #e8e8e8;
+  outline: none;
+  transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+.sc-item input::placeholder { color: rgba(232,232,232,.45); }
+
+.sc-item input:focus {
+  border-color: rgba(255, 255, 255, .28);
+  background: rgba(0, 0, 0, .12);
+  box-shadow: 0 0 0 3px rgba(255,255,255,.08) inset;
+}
+
+/* delete button in-row */
+.sc-item .btn.del {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(239, 68, 68, .45);
+  background: rgba(239, 68, 68, .10);
+  color: #fecaca;
+  font-weight: 700;
+}
+.sc-item .btn.del:hover {
+  background: rgba(239, 68, 68, .16);
+  border-color: rgba(239, 68, 68, .6);
+}
+
+/* row layout: mobile-first (stacked) */
+.sc-item { grid-template-columns: 1fr; }
+
+/* wider screens: label | url | delete */
+@media (min-width: 760px) {
+  .sc-list { gap: 10px; }
+  .sc-item {
+    grid-template-columns: 1fr 2fr auto;
+    align-items: center;
+  }
+  .sc-item .btn.del {
+    width: auto;
+    padding: 10px 14px;
+  }
+}
+
+/* actions under the list (Add / Save) */
+.sc-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.sc-actions .btn {
+  padding: 10px 16px;
+}
+.sc-actions .btn#scSave {
+  border-color: var(--edge);
+  background: rgba(255, 255, 255, .06);
+  color: var(--text);
+}
+.sc-actions .btn#scSave:hover {
+  background: rgba(78, 78, 78, .12);
+  border-color: rgba(78, 78, 78, .22);
+}

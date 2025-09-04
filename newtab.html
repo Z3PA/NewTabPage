@@ -1,0 +1,41 @@
+<head>
+  <meta charset="utf-8">
+  <title>Loading...</title>
+  <link rel="icon" id="favicon" href="">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <button id="svcFab" title="Open panel">
+    <span class="ring"></span>
+    <img id="launcherIcon" src="" alt="">
+  </button>
+
+  <div id="panelBackdrop"></div>
+  <aside id="panel" aria-modal="true" role="dialog">
+    <header>
+      <h2 id="panelTitle">Links</h2>
+      <nav class="tabs" role="tablist" aria-label="Panel tabs">
+        <button class="tab active" data-tab="links" role="tab" aria-selected="true">Links</button>
+        <button class="tab" data-tab="services" role="tab" aria-selected="false">Services</button>
+      </nav>
+      <button id="panelClose" aria-label="Close">✕</button>
+    </header>
+    <div class="panelBody">
+      <iframe id="panelFrame" src="links.html" title="Panel content"></iframe>
+    </div>
+  </aside>
+
+  <div id="brand">Loading...</div>
+
+  <form id="searchForm" action="https://www.google.com/search" method="GET">
+    <input name="q" type="text" placeholder="Search the web…" autofocus />
+    <button type="submit">Search</button>
+  </form>
+
+  <nav id="shortcuts"></nav>
+
+  <script src="js/config-loader.js" defer></script>
+  <script src="js/newtab.js" defer></script>
+</body>
+</html>

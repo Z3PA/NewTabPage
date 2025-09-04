@@ -1,0 +1,30 @@
+{
+  "titleText": "Hello User",
+  "brandText": "Hello User",
+  "favicon": "icons/favicon.png",
+  "launcherIcon": "icons/favicon.png",
+  "backgroundImage": "https://wallpapercat.com/w/full/9/5/a/945731-3840x2160-desktop-4k-matte-black-wallpaper-image.jpg",
+  
+  "linksTitle1": "Your Links 1",
+  "linksTitle2": "Your Links 2",
+
+  "_comment": "Shortcuts DO NOT Save to this file.",
+  "shortcuts": [
+    { "label": "shortcuts1", "url": "https://example.com" },
+    { "label": "shortcuts2", "url": "https://example.com" },
+    { "label": "shortcuts3", "url": "https://example.com" }
+  ],
+
+  "container1": [
+    { "name": "container11", "url": "https://example.com", "icon": "https://example.com/icon.png" },
+    { "name": "container12", "url": "https://example.com", "icon": "https://example.com/icon.png" },
+    { "name": "container13", "url": "https://example.com", "icon": "https://example.com/icon.png" },
+    { "name": "Google", "url": "https://google.com", "icon": "icons/apps/Google.png" }
+  ],
+
+  "container2": [
+    { "name": "container21", "url": "https://example.com", "icon": "https://example.com/icon.png" },
+    { "name": "container22", "url": "https://example.com", "icon": "https://example.com/icon.png" },
+    { "name": "container23", "url": "https://example.com", "icon": "https://example.com/icon.png" }
+  ]
+}

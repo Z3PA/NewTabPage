@@ -1,0 +1,115 @@
+:root {
+    --edge: rgba(255, 255, 255, .14);
+    --text: #e8e8e8;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background: transparent;
+    color: var(--text);
+    font: 14px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.wrap {
+    padding: 12px;
+}
+
+.sectionTitle {
+    font-weight: 700;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid var(--edge);
+    margin: 8px 0 12px;
+}
+
+.grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media(min-width:360px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media(min-width:520px) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Tighter padding and fixed height to equalize boxes */
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    height: 70px;
+    /* <- fixed height */
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid var(--edge);
+    transition: background .15s ease, border-color .15s ease, transform .06s ease;
+}
+
+.app:hover {
+    background: rgba(255, 255, 255, .12);
+    border-color: rgba(255, 255, 255, .22);
+}
+
+.app:active {
+    transform: translateY(1px);
+}
+
+.iconWrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid var(--edge);
+    overflow: hidden;
+}
+
+.app img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Auto-shrink text and clamp to two lines to keep card height stable */
+.app span {
+    max-width: 100%;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: center;
+    font-size: clamp(10px, 1.2vw, 12px);
+    /* <- auto scales */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* max two lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 4px;
+    /* tiny side padding */
+}
