@@ -6,13 +6,6 @@
   const SERVICES_URL = chrome.runtime.getURL('services.html');
 
   const DEFAULT_SHORTCUTS = [
-    { label: "Jellyfin Hub", url: "http://z3pasjellyfinserver.online/" },
-    { label: "ChatGPT", url: "https://chatgpt.com/" },
-    { label: "Jellyfin", url: "http://jellyfin.z3pasjellyfinserver.online/" },
-    { label: "Twitch", url: "https://www.twitch.tv/wZ3PA" },
-    { label: "TikTok", url: "https://www.tiktok.com/@w.z3pa" },
-    { label: "Fortnite Tracker", url: "https://fortnitetracker.com/" },
-    { label: "Epic Games", url: "https://epicgames.com/" }
   ];
 
   const $ = (s, r = document) => r.querySelector(s);
@@ -272,3 +265,4 @@
     init();
   }
 })();
+
